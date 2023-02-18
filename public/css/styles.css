@@ -1,0 +1,79 @@
+
+html, body {
+    font-family: "Arial", 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: #8E8E8E;
+}
+.contenedorfom{
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+.formu {
+    background-color: white;
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    border: 1px solid #d1d1d1;
+    width: 350px;
+    padding: 50px;
+    text-align: center;
+}
+
+.formu h3{
+    margin: 10px 0 25px 0;
+}
+
+.btncreate{
+    width: 100%;
+    background: #4BB4F8;
+    border: none;
+    font-weight: bold;
+}
+
+.formu a {
+    text-decoration: none;
+    color:#4BB4F8; 
+}
+
+
+input {
+    color: #878787;
+}
+.contenedorlogo{
+    text-align: center;
+}
+.logo{
+    max-width: 100%;
+    width: 200px;
+
+}
+.info{
+    font-size: 11px;
+    text-align: center;
+    margin: 5% 0;
+}
+ .formulogin{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    margin-top: 10px;
+ }
+
+

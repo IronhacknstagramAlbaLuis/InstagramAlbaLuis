@@ -1,15 +1,32 @@
-<form action="/feed" method="POST">
-    <div class="mb-3"></div>
-        <label for="name" class="form-label">Name</label>
-        <input type="text" value="" name="user" id="user">
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="your email">
-    </div>
-    <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+<div class="contenedorfom">
+    <div class="formu">
+        <p class="contenedorlogo">
+            <img class="logo" src="/images/instagram.png" alt=""> 
+        </p>
+        <h3>Sign up to see photos and videos of your friends</h3>
+        
+        <form action="/feed" method="POST">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="user" id="user" placeholder="Your name">
+                <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="your email">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <p class="info">Users of our service may have uploaded your contact information on Instagram. More information about our service<br>
+        By signing up, you agree to our Terms. Learn more about how we collect, use and share your information in our Privacy Policy, as well as our use of cookies and similar technologies in our Cookie Policy.
+        </p>
+            <button type="submit" class="btncreate btn btn-primary">Create</button>
+        </form>
+    </div> 
+
+    <div class="formu formulogin">
+        <p> Do you have an account? <a href="">Login</a></p> 
+    </div>   
+</div>
+

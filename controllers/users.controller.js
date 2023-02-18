@@ -8,4 +8,8 @@ module.exports.create = (req, res) => {
 module.exports.docreate = (req, res) =>{
     console.log("hola")
     console.log(req.body)
+    function renderWithErrors(errors){
+        res.render('user/sing-in', { errors, user: req.body });
+    }
+
 }
