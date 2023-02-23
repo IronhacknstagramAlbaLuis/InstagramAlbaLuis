@@ -1,0 +1,30 @@
+<div class="contenedorfom">
+    <div class="formu">
+        <p class="contenedorlogo logologin">
+            <img class="logo" src="/images/instagram.png" alt=""> 
+        </p>
+       
+        {{#if errors}} <div class="alert alert-danger">review form data</div>{{/if}}
+        <form action="/" method="POST">
+           
+            <div class="form-floating mb-3">
+                <input type="email" value="{{user.email}}" name="email" placeholder="your email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email">
+                <label for="floatingInput">Email address</label>
+                {{#if errors.email}}<div class="invalid-feedback">{{errors.email.message}}</div>{{/if}}
+            </div>
+            <div class="form-floating">
+                <input type="password" value="{{user.password}}" class="form-control {{#if errors.password}}is-invalid{{/if}}" name="password" id="password">
+                <label for="floatingPassword">Password</label>
+                {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
+            </div>
+            
+            <button type="submit" class="btncreate btn btn-primary btnlogin">LOGIN</button>
+        </form>
+
+    </div> 
+
+    <div class="formu formulogin">
+        <p> Don´t have an account? <a href="/sing-in">Sing in</a></p> 
+    </div>   
+</div>
+

@@ -10,11 +10,13 @@ router.get('/users/sing-in', users.create )
 router.post('/feed', users.docreate)
 
 //login
+router.get("/login", users.login);
+router.post("/", users.doLogin);
 
 
-
-
-// router.get('/', post.home)
+//post
+ router.get('/', post.home)
+ router.get('/create', post.create)
 
 
 module.exports = router;

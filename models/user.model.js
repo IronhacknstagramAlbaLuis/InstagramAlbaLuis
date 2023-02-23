@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 const schema = new mongoose.Schema(
     {
         name: {type: String, required: [true, "Tell us your name"] },
@@ -23,5 +24,22 @@ const schema = new mongoose.Schema(
     },
     { timestamps: true }
 );
+
+schema.pre("save", function(next){
+    const user = this;
+
+    if (user.isModified("password")) {
+        bcrypt
+        .hash(user.password, 10)
+        .then((encyptedPassword) => {
+            // console.log(encyptedPassword)
+            user.password = encyptedPassword;
+            next();
+        })
+        .catch(next);
+    } else {
+        next();
+    }
+});
 
 module.exports = mongoose.model("User", schema);

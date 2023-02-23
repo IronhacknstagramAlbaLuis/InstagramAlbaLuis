@@ -4,29 +4,34 @@
             <img class="logo" src="/images/instagram.png" alt=""> 
         </p>
         <h3>Sign up to see photos and videos of your friends</h3>
+        {{#if errors}}<div class="alert alert-danger">Review form data</div>{{/if}}
         
         <form action="/feed" method="POST">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="user" id="user" placeholder="Your name">
+                <input type="text" value="{{user.name}}" name="name" class="form-control {{#if errors.name}}is-invalid{{/if}}" placeholder="Your name">
                 <label for="floatingInput">Name</label>
+                {{#if errors.name}}<div class="invalid-feedback">{{errors.name}}</div>{{/if}}
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" placeholder="your email">
+                <input type="email" value="{{user.email}}" name="email" placeholder="your email" class="form-control {{#if errors.email}}is-invalid{{/if}}">
                 <label for="floatingInput">Email address</label>
+                {{#if errors.email}}<div class="invalid-feedback">{{errors.email}}</div>{{/if}}
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" value="{{user.password}}" class="form-control {{#if errors.password}}is-invalid{{/if}}" name="password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
+                {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
             </div>
             <p class="info">Users of our service may have uploaded your contact information on Instagram. More information about our service<br>
-        By signing up, you agree to our Terms. Learn more about how we collect, use and share your information in our Privacy Policy, as well as our use of cookies and similar technologies in our Cookie Policy.
-        </p>
+                By signing up, you agree to our Terms. Learn more about how we collect, use and share your information in our Privacy Policy, as well as our use of cookies and similar technologies in our Cookie Policy.
+            </p>
             <button type="submit" class="btncreate btn btn-primary">Create</button>
         </form>
+
     </div> 
 
     <div class="formu formulogin">
-        <p> Do you have an account? <a href="">Login</a></p> 
+        <p> Do you have an account? <a href="/login">Login</a></p> 
     </div>   
 </div>
 
