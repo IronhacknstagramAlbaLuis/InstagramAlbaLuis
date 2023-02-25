@@ -5,7 +5,7 @@
         </p>
        
         {{#if errors}} <div class="alert alert-danger">review form data</div>{{/if}}
-        <form action="/" method="POST">
+        <form action="/login" method="POST">
            
             <div class="form-floating mb-3">
                 <input type="email" value="{{user.email}}" name="email" placeholder="your email" class="form-control {{#if errors.email}}is-invalid{{/if}}" id="email">

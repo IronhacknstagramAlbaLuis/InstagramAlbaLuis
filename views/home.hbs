@@ -1,6 +1,12 @@
-<h1>hola</h1>
 
+{{> navlogo}}
 
-<button>
-    <a href="/create">Post</a>
-</button>
+{{#each posts as |post|}}
+    <div>
+        <img src="{{post.postimage}}" class="card-img-top" alt="...">
+        <p class="card-text">{{post.description}}</p>
+    </div>
+
+{{/each}}
+    
+{{> navbar}}

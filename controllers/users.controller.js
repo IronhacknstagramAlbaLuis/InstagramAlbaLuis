@@ -2,12 +2,14 @@ const User = require('../models/user.model');
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
 
+
 module.exports.create = (req, res) => {
-    res.render('users/sing-in');
+  // console.log("hola")
+    res.render('users/sign-in');
 }
 module.exports.docreate = (req, res) =>{
     function renderWithErrors(errors){
-        res.render('users/sing-in', { errors, user: req.body });
+        res.render('users/sign-in', { errors, user: req.body });
       }
     //   console.log(req.body.email)
       User.findOne({ email: req.body.email })
@@ -17,6 +19,7 @@ module.exports.docreate = (req, res) =>{
       if (user) {
         renderWithErrors({ email: 'email already registered' })
       } else {
+
         return User.create(req.body)
           .then(() => res.redirect('/login'))
       }
@@ -39,15 +42,13 @@ module.exports.doLogin = (req, res, next) => {
     // console.log("hola")
     User.findOne({ email: req.body.email })
         .then((user) => {
+         
             bcrypt
-            .compare(req.body.password, user.password)
+            .compare(req.body.password, user.password) //aqui falta algo
             .then((ok) => {
-                // console.log(ok)
                 if (ok) {
-                   console.log(req.session)
-                  // console.log(req.session.userId)
                      req.session.userId = user.id;
-                     console.log(user.id)
+                   
                     res.redirect('/') 
                 }
             })

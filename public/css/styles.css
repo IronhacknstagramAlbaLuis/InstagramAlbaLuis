@@ -2,6 +2,11 @@
 html, body {
     font-family: "Arial", 'Roboto', sans-serif;
     font-size: 13px;
+    max-width: 500px;
+}
+main.container{
+    margin: 0px;
+    padding: 0px;
 }
 
 p {
@@ -14,6 +19,30 @@ h3{
     font-weight: bold;
     color: #8E8E8E;
 }
+
+nav{
+    width: 100%;
+    background: #000;
+    position: absolute;
+    bottom: 0px;
+    max-width: 500px;
+}
+.menu{
+    width: 100%;
+    background: #000;
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+.submenu{
+    width: 25%;
+}
+li.submenu{
+    display: flex;
+    padding: 4% 7%;
+}
+
 .contenedorfom{
     background: white;
     min-height: 100vh;
@@ -81,4 +110,19 @@ input {
 }
 .logologin{
     margin-bottom: 20px;
+}
+.navsuperior {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    align-items: center;
+    padding: 4%;
+}
+img.logowhite{
+    max-width: 150px;
+    margin-top: 12px;
+}
+img.like{
+    max-width: 40px;
 }
