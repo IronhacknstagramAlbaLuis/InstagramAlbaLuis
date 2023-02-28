@@ -17,11 +17,11 @@ router.get("/login", users.login);
 router.post("/login", users.doLogin);
 
 
-//post
 
  router.get('/', post.home);
  router.get('/create', secure.isAuthenticated , post.create);
  router.post('/', secure.isAuthenticated , multer.single('postimage'), post.doCreate);
-
+ router.get('/update', users.update);
+ router.get('/search', post.search);
 
 module.exports = router;

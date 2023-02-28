@@ -2,11 +2,31 @@
 {{> navlogo}}
 
 {{#each posts as |post|}}
-    <div>
-        <img src="{{post.postimage}}" class="card-img-top" alt="...">
-        <p class="card-text">{{post.description}}</p>
-    </div>
-
+    <div class="post">
+		  <div class="user-post">
+			  <div class="userimgs_post">
+				  <img src="/images/turtle.jpg" class="userimgs">
+				  <p class="usernames_post">{{post.author.name}} </p>
+			  </div>
+	 	  </div>
+		  <img src="{{post.postimage}}" class="img_post">
+		  <div class="test-post">
+			  <div class="icons_post">
+				  <img src="/images/like.png" class="icon_post">
+				  <img src="/images/coment.png" class="icon_post">
+				  <img src="/images/save.png" class="icon_post save">
+			  </div>
+			  <div class="likes_post">
+				  <p>XXX Likes</p>
+			  </div>
+			  <div class="description_post">
+				  <p><b>User name:</b> {{post.description}}</p>
+			  </div>
+			  <div class="coments_post">
+				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+			  </div>
+	 	  </div>
+	  </div>
 {{/each}}
-    
+
 {{> navbar}}

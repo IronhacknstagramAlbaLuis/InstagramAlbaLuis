@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema(
     {
     userimage: { type: String },
-    username: {type: String},
+    author: { 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: [true, "user is required"] 
+      },
     postimage: { type: String },
     likes: {type: Number, default: 0},
     coments: {

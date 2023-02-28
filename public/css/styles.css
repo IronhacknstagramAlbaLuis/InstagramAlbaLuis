@@ -3,6 +3,7 @@ html, body {
     font-family: "Arial", 'Roboto', sans-serif;
     font-size: 13px;
     max-width: 500px;
+    background: black;
 }
 main.container{
     margin: 0px;
@@ -23,7 +24,7 @@ h3{
 nav{
     width: 100%;
     background: #000;
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     max-width: 500px;
 }
@@ -91,7 +92,10 @@ input {
 .logo{
     max-width: 100%;
     width: 200px;
-
+}
+.icono{
+    max-width: 80%;
+    width: 200px;
 }
 .info{
     font-size: 11px;
@@ -126,3 +130,110 @@ img.logowhite{
 img.like{
     max-width: 40px;
 }
+
+
+/* POST */
+
+p {
+    font-size: 14px;
+}
+.post{
+background: black;			  
+}
+.img_post {
+    max-width: 100%;
+width: 100%
+}
+.icons_post {
+margin-bottom: 12px;
+}
+.icon_post {
+width: 25px;
+margin-right: 10px;
+}
+.test-post {
+padding: 5%;
+color: white;
+}
+.save{
+float: right;
+}
+.userimgs {
+max-width: 100px;
+width: 50px;
+height: 50px;
+border-radius: 30px;
+}
+.usernames_post{
+display: inline;
+color: white;
+}
+.user-post{
+padding: 2% 5%;
+}
+
+
+/* PERFIL */
+
+.perfil{
+    background: black;
+    color: white;
+    padding: 4%;
+}
+.userimgperfil {
+    max-width: 100px;
+    width: 70px;
+    height: 70px;
+    border-radius: 40px;
+  }
+.user-detail-perfil{
+    display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: distribute;
+  justify-content: space-between;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.info{
+    text-align: center;
+}
+.info p {
+    margin: 0px;
+    font-size: 13px;
+  }
+.txtbg {
+    font-size: 18px;
+}
+.description-perfil {
+    margin-top: 10px;
+  }
+.btn-edit {
+    background: #282828;
+    padding: 5px 50px;
+    text-decoration: none;
+    color: white;
+    border-radius: 9px;
+  }
+  .your-post{
+    background: black;
+  }
+.your-image-post {
+    display: inline;
+    width: 32.6%;
+    margin-bottom: 3px;
+  }
+.user-edit {
+    margin: 15px 0px;
+  }

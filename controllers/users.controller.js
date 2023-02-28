@@ -59,3 +59,14 @@ module.exports.doLogin = (req, res, next) => {
         })
         .catch(next);
 };
+
+
+module.exports.update = (req, res, next) => {
+  
+  res.render('users/profile')
+  // Tweet.findById(req.params.id)
+    // .then((posts) => {
+    //   res.render("", { posts });
+    // })
+    // .catch(next);
+};
