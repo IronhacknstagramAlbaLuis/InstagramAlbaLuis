@@ -1,7 +1,7 @@
 const Post = require("../models/post.model")
 
 module.exports.home = (req, res, next) => {
-     console.log("hola")
+    //  console.log("hola")
 
     // const criteria ={};
 
@@ -29,7 +29,7 @@ module.exports.create = ( req, res, next) =>{
 
 
 module.exports.doCreate = (req, res, next) => {
-    console.log("hola")
+    // console.log("hola")
 
     if (req.file) {
         req.body.postimage = req.file.path;

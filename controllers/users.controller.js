@@ -39,14 +39,17 @@ module.exports.login = (req, res) => {
 }
 
 module.exports.doLogin = (req, res, next) => {
-    // console.log("hola")
+    
     User.findOne({ email: req.body.email })
         .then((user) => {
-         
+          // console.log(user.id)
             bcrypt
             .compare(req.body.password, user.password) //aqui falta algo
             .then((ok) => {
                 if (ok) {
+                  //console.log(req.session)
+                  //console.log(req.headers)
+                  //console.log(user.id)
                      req.session.userId = user.id;
                    
                     res.redirect('/') 

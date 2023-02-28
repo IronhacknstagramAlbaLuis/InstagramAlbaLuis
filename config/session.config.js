@@ -12,8 +12,26 @@ module.exports.session = session({
       httpOnly: true,
       secure: process.env.SESSION_SECURE === 'true'
     },
-    store: MongoStore.create({ //para guardar cookies en el la base de datos mongo //tenemos q intalar la liberia connect-mongo//se nos tiene que crear una collecion con las cookies
+    store: MongoStore.create({ 
       mongoUrl: MONGODB_URI,
       ttl: 14 * 24 * 60 * 60 // = 14 days. Default
     })
   })
+
+  module.exports.loadSessionUser = ( req, res, next )=> {
+    const { userId } = req.session
+    
+    if(userId) {
+      User.findById(userId)
+      .then((user)=>{
+        console.log(user)
+        req.user = user;
+        res.locals.currentUser = user
+        next()
+      })
+      .catch(error=> next(error))
+    }else {
+      next()
+    }
+  }
+
