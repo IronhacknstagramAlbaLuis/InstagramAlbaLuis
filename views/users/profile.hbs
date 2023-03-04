@@ -1,33 +1,36 @@
-<div class="perfil">	  
-	<div class="user-detail-perfil">
-		<div class="userimgs_post">
-			<img src="/images/turtle.jpg" class="userimgperfil">
+
+	<div class="perfil">	  
+		<div class="user-detail-perfil">
+			<div class="userimgs_post">
+				<img src="{{user.userimage}}" class="userimgperfil">
+			</div>
+			<div class="info">
+				<p><span class="txtbg">x</span><br>Publications</p>
+			</div>
+			<div class="info">
+				<p><span class="txtbg">x</span><br>Followers</p>
+			</div>
+			<div class="info">
+				<p><span class="txtbg">x</span><br>Following</p>
+			</div>
 		</div>
-		<div class="info">
-			<p><span class="txtbg">x</span><br> Publications</p>
+			
+		<div class="user-description-perfil">
+			<div class="description-perfil">
+			<p>{{user.name}}</p>
+			<p>{{user.userdescription}}</p>
+			</div>
 		</div>
-		<div class="info">
-			<p><span class="txtbg">x</span><br> Followers</p>
-		</div>
-		<div class="info">
-			<p><span class="txtbg">x</span><br> Following</p>
-		</div>
+		{{#if (isSame user._id userLogged) }}
+			<div class="user-edit">
+				<a href="/users/me/edit" class="btn-edit">EDIT</a>
+			</div>
+		{{/if}}
 	</div>
-		  
-	<div class="user-description-perfil">
-		<div class="description-perfil">
-		<p>Name</p>
-		<p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Nunc et massa quis augue aliquet blandit. Nam vel consequat diam. Vivamus nisi elit, pretium non sapien ut</p>
-		</div>
-	</div>
-	<div class="user-edit">
-		<a href="#" class="btn-edit">EDIT</a>
-	</div>
-</div>
-<div class="your-post">
-	{{#each posts as |post|}}
-    	<img src="{{post.postimage}}" class="your-image-post">
-	{{/each}}
-</div>
+	 <div class="your-post">
+		{{#each user.posts as |post|}}
+			<a href="/posts/{{user.id}}/detail"><img src="{{post.postimage}}" class="your-image-post"></a>
+		{{/each}}
+	</div> 
 
 {{> navbar}}

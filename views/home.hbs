@@ -5,28 +5,41 @@
     <div class="post">
 		  <div class="user-post">
 			  <div class="userimgs_post">
-				  <img src="/images/turtle.jpg" class="userimgs">
-				  <p class="usernames_post">{{post.author.name}} </p>
+				  <img src="{{post.author.userimage}}" class="userimgs">
+				  <a href="/users/{{post.author._id}}"><p class="usernames_post">{{post.author.name}}</p> </a>
 			  </div>
 	 	  </div>
 		  <img src="{{post.postimage}}" class="img_post">
 		  <div class="test-post">
 			  <div class="icons_post">
-				  <img src="/images/like.png" class="icon_post">
-				  <img src="/images/coment.png" class="icon_post">
+				  <img src="/images/like.png" class="icon_post" id="like" onclick="this.src='/images/like_active.png'">
+				  <a href="/posts/{{post.id}}/comments"><img src="/images/coment.png" class="icon_post"></a>
 				  <img src="/images/save.png" class="icon_post save">
 			  </div>
-			  <div class="likes_post">
-				  <p>XXX Likes</p>
-			  </div>
 			  <div class="description_post">
-				  <p><b>User name:</b> {{post.description}}</p>
+				  <p> <b>{{post.author.name}}</b> {{post.description}}</p>
 			  </div>
-			  <div class="coments_post">
+			  {{!-- <div class="coments_post">
 				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-			  </div>
+			  </div> --}}
 	 	  </div>
+
+		  {{#each post.comments as |c|}}
+		  	<div>{{c.text}} - {{c.author.name}}</div>
+		  {{/each}}
 	  </div>
 {{/each}}
 
 {{> navbar}}
+
+
+
+
+
+{{!-- <script>
+    document.getElementById("like").onclick = (event) => {
+        console.log(event)
+        const newImage = event.target.value
+        document.getElementById("image").src = newImage
+    }
+</script> --}}

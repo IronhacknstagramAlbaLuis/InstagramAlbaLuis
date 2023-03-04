@@ -1,21 +1,23 @@
 const User = require('../models/user.model');
+const Like = require('../models/like.model');
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs");
 
 
+
 module.exports.create = (req, res) => {
-  // console.log("hola")
+  
     res.render('users/sign-in');
 }
 module.exports.docreate = (req, res) =>{
     function renderWithErrors(errors){
         res.render('users/sign-in', { errors, user: req.body });
       }
-    //   console.log(req.body.email)
+    
       User.findOne({ email: req.body.email })
     .then(user => {
         
-        // console.log(req.body)
+      
       if (user) {
         renderWithErrors({ email: 'email already registered' })
       } else {
@@ -42,14 +44,12 @@ module.exports.doLogin = (req, res, next) => {
     
     User.findOne({ email: req.body.email })
         .then((user) => {
-          // console.log(user.id)
+       
             bcrypt
-            .compare(req.body.password, user.password) //aqui falta algo
+            .compare(req.body.password, user.password) 
             .then((ok) => {
                 if (ok) {
-                  //console.log(req.session)
-                  //console.log(req.headers)
-                  //console.log(user.id)
+                 
                      req.session.userId = user.id;
                    
                     res.redirect('/') 
@@ -61,12 +61,33 @@ module.exports.doLogin = (req, res, next) => {
 };
 
 
+
+module.exports.profile = (req, res, next) =>{
+  // console.log("hola")
+  // console.log(req.user.id)
+  User.findById(req.params.id)
+    .populate('posts')
+    .then((user)=>{
+      res.render("users/profile", { user, userLogged: req.user._id });
+     })
+    .catch((next))
+}
+
 module.exports.update = (req, res, next) => {
-  
-  res.render('users/profile')
-  // Tweet.findById(req.params.id)
-    // .then((posts) => {
-    //   res.render("", { posts });
-    // })
-    // .catch(next);
-};
+
+  User.findById(req.user.id)
+  .then((user)=>{
+    res.render('users/update', {user})
+  })
+}
+
+module.exports.doUpdate = (req, res, next) => {
+  if (req.file) {
+    req.body.userimage = req.file.path;
+  }
+   User.findByIdAndUpdate(req.user._id, req.body)
+   .then((user)=>{
+    res.redirect(`/users/${user._id}`)
+   })
+}
+

@@ -24,7 +24,7 @@ module.exports.session = session({
     if(userId) {
       User.findById(userId)
       .then((user)=>{
-        console.log(user)
+        
         req.user = user;
         res.locals.currentUser = user
         next()

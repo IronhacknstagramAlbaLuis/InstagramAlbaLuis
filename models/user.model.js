@@ -16,6 +16,15 @@ const schema = new mongoose.Schema(
             required: [true, "Tell us your password"],
             minLength: [6, "must have 6 character"]
         },
+        userimage: {
+            type: String ,
+            default: 'https://res.cloudinary.com/dp520ozjl/image/upload/v1659034965/glovo/dvyi5n3bxrymxwrrjgcf.png',
+        },
+        userdescription: {
+            type: String,
+            maxLength: [250, "max 250 chars."],
+            default: 'Esta es mi presentación',
+            },
         role: {
             type: String, 
             enum: ['admin', 'guest'],
@@ -32,7 +41,7 @@ schema.pre("save", function(next){
         bcrypt
         .hash(user.password, 10)
         .then((encyptedPassword) => {
-            // console.log(encyptedPassword)
+          
             user.password = encyptedPassword;
             next();
         })
@@ -41,5 +50,12 @@ schema.pre("save", function(next){
         next();
     }
 });
+
+schema.virtual('posts', {
+    ref: 'Post',
+    localField: '_id',
+    foreignField: 'author',
+    justOne: false
+})
 
 module.exports = mongoose.model("User", schema);

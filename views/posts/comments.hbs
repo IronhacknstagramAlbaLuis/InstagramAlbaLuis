@@ -1,0 +1,8 @@
+<form action="/posts/{{id}}/comments" method="post">
+    <div class="input-group">
+        <span class="input-group-text">With textarea</span>
+        <textarea class="form-control" name="description" aria-label="With textarea" id="description" rows="5">{{post.comment}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Public</button>
+</form>
+

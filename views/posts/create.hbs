@@ -1,15 +1,35 @@
-
-<form action="/" method="post" enctype="multipart/form-data">
-    
-    <div class="mb-3">
-        <label for="image" class="form-label">Default file input example</label>
-        <input class="form-control" name="postimage" type="file" id="image">
-    </div>
-    <div class="input-group">
-        <span class="input-group-text">With textarea</span>
-        <textarea class="form-control" name="description" aria-label="With textarea" id="description" rows="5"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Public</button>
-</form>
+<div class="imgfrmpost">
+			<img src="images/foto.jpg" class="userimgs">
+			<p style="font-size: 30px;color: white;text-align: center; margin-top: 20px">NEW POST</p>
+	
+		</div>
+		<form action="/" method="post" enctype="multipart/form-data" class="frmnewpost">
+			<div class="mb-3">
+				<input class="form-control" name="postimage" type="file" id="image">
+			</div>
+			<div class="form-floating">
+  				<textarea class="form-control" name="description" placeholder="Write a caption" id="description" rows="5" style="height: 100px"></textarea>
+  				<label for="floatingTextarea2">Public</label>
+			</div>
+			<button type="submit" class="btn btn-primary btnewpost">Public</button>
+		</form>
+		<nav>
+			<div>
+				<ul class="menu">
+					<li class="submenu">
+						<a class=" active" aria-current="page" href="/"><img class="icono" src="/images/inst2.png" alt=""></a>
+					</li>
+					<li class="submenu">
+						<a class="" href="/search"><img class="icono" src="/images/inst4.png" alt=""></a>
+					</li>
+					<li class="submenu">
+						<a class="" href="/create"><img class="icono" src="/images/inst3.png" alt=""></a>
+					</li>
+					<li class="submenu">
+						<a class=" disabled" href="/users?id={{user.id}}"><img class="icono" src="/images/inst1.png" alt=""></a>
+					</li>
+				 </ul>
+			</div>
+		</nav>
 
 {{> navbar}}

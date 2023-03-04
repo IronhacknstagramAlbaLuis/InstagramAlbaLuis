@@ -1,37 +1,44 @@
 const Post = require("../models/post.model")
 const User = require('../models/user.model');
+const Comment = require('../models/comment.model');
+const Like = require('../models/like.model')
 const mongoose = require("mongoose");
+
+
+
+
 module.exports.home = (req, res, next) => {
-     console.log("hola")
+  const criteria = {};
 
-    const criteria ={};
+  if (req.query.author) {
+    criteria.user = req.query.author;
+  }
+  if (req.query.search) {
+    criteria.imgpost = new RegExp(req.query.search);
+    criteria.descriptionpost = new RegExp(req.query.search);
+  }
 
-    if (req.query.user) {
-        criteria.user = req.query.user;
-    }
-    if (req.query.search){
-        criteria.imgpost = new RegExp(req.query.search);
-        criteria.descriptionpost = new RegExp(req.query.search);
-    }
-    
-    Post.find(criteria) 
-    .populate('author')
+  Post.find(criteria)
+    .populate("author")
+    .populate({
+      path: 'comments',
+      populate: {
+        path: 'author'
+      }
+    })
     .sort({ createdAt: req.query.sort || "desc" })
     //.then((posts) => res.render("posts/list", { posts, query: req.query }))
-    .then((posts) => res.render("home", {posts}))
+    .then((posts) => res.render("home", { posts, query: req.query, user: req.user }))
     .catch(next);
-    }
+}
 
 
 module.exports.create = ( req, res, next) =>{
-    //  console.log("hola")
     res.render("posts/create");
 }
 
 
 module.exports.doCreate = (req, res, next) => {
-    // console.log("hola")
-
     if (req.file) {
         req.body.postimage = req.file.path;
       }
@@ -47,12 +54,53 @@ module.exports.doCreate = (req, res, next) => {
         });
     };
 
+module.exports.comment = (req, res, next) => {
+  res.render('posts/comments', { id: req.params.id })
+}
+
+module.exports.docomment = (req, res, next) =>{
+  // create comment wirh:^
+  // author: req.user._id
+  // post: req.params.id
+  // text: req.body.description
+
+  Comment.create({
+    author: req.user._id,
+    post: req.params.id,
+    text: req.body.description
+  }).then(comment => {
+    res.redirect(`/`)
+  })
+  .catch(next)
+}
+
+module.exports.imgprofile = (req, res, next) => {
+  Post.find(criteria)
+  .populate("author")
+  .populate({
+  path: 'posts',
+  populate: {
+    path: 'author'
+  }
+})
+
+  .sort({ createdAt: req.query.sort || "desc" })
+//.then((posts) => res.render("posts/list", { posts, query: req.query }))
+  .then((posts) => res.render("user/profile", { posts }))
+  .catch(next);
+  
+  //res.render('posts/comments', { id: req.params.id })
+}
+
 module.exports.search = (req, res, next)=>{
   
 
   res.render("posts/search")
 }
  
-    
+    module.exports.detail = (req, res, next)=>{
+      console.log("buenastardes")
+    }
+
 
  
