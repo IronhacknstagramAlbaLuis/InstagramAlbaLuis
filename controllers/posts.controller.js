@@ -93,14 +93,21 @@ module.exports.imgprofile = (req, res, next) => {
 }
 
 module.exports.search = (req, res, next)=>{
-  
-
-  res.render("posts/search")
+  Post.find()
+  .then((posts) => {
+    res.render("posts/search", {posts})
+  })
 }
  
-    module.exports.detail = (req, res, next)=>{
-      console.log("buenastardes")
-    }
+module.exports.detail = (req, res, next)=>{
+  Post.findById(req.params.id )
+  .populate('author')
+  .then((post) =>{
+    res.render("posts/detail", {post})
+  })
+  //console.log(req.params)
+  //Post.findById( req.params.id )
+}
 
 
  

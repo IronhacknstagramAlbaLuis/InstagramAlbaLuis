@@ -30,7 +30,7 @@ router.get('/users/:id', users.profile)
 router.get('/users/me/edit', users.update)
 router.post('/users/me/edit', multer.single('userimage'), users.doUpdate)
 router.get('/posts/:id/detail', post.detail)
-
+router.get('/search', post.search);
 
 // app.get('/ab?cd', function(req, res) {
 //     res.send('ab?cd');
@@ -41,6 +41,6 @@ router.get('/posts/:id/detail', post.detail)
 // router.get('/posts/profile/:id', post.imgprofile);
 
 // router.get('/update', users.update);
-router.get('/search', post.search);
+
 
 module.exports = router;

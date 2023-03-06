@@ -8,6 +8,7 @@ const schema = new mongoose.Schema(
         required: [true, "user is required"] 
       },
     postimage: { type: String },
+    likes: { type: Number, default: 0 },
     description:  {
         type: String,
         required: [true, "message is required"],
