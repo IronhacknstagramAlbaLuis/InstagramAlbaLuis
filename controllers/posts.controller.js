@@ -28,7 +28,9 @@ module.exports.home = (req, res, next) => {
     })
     .sort({ createdAt: req.query.sort || "desc" })
     //.then((posts) => res.render("posts/list", { posts, query: req.query }))
-    .then((posts) => res.render("home", { posts, query: req.query, user: req.user }))
+    .then((posts) => {
+      console.log(req.user)
+      res.render("home", { posts, query: req.query, user: req.user })})
     .catch(next);
 }
 

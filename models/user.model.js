@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const ADMIN_USERS = process.env.ADMIN_USERS 
 const schema = new mongoose.Schema(
     {
         name: {type: String, required: [true, "Tell us your name"] },
@@ -36,6 +37,9 @@ const schema = new mongoose.Schema(
 
 schema.pre("save", function(next){
     const user = this;
+        if(user.email === ADMIN_USERS) {
+            user.role ='admin'
+        }
 
     if (user.isModified("password")) {
         bcrypt
@@ -55,6 +59,12 @@ schema.virtual('posts', {
     ref: 'Post',
     localField: '_id',
     foreignField: 'author',
+    justOne: false
+})
+schema.virtual('likes', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'user',
     justOne: false
 })
 

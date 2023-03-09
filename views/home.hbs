@@ -12,16 +12,19 @@
 		  <img src="{{post.postimage}}" class="img_post">
 		  <div class="test-post">
 			  <div class="icons_post">
-				  <img src="/images/like.png" class="icon_post" id="like" onclick="this.src='/images/like_active.png'">
+				  {{!-- <img src="/images/like.png" class="icon_post" id="like" onclick="this.src='/images/like_active.png'"> --}}
+				  <form method="post" action="/like/post/{{post.id}}">
+					<button type="submit">corazón</button>
+				  </form>
 				  <a href="/posts/{{post.id}}/comments"><img src="/images/coment.png" class="icon_post"></a>
 				  <img src="/images/save.png" class="icon_post save">
 			  </div>
 			  <div class="description_post">
 				  <p> <b>{{post.author.name}}</b> {{post.description}}</p>
 			  </div>
-			  {{!-- <div class="coments_post">
-				  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-			  </div> --}}
+			  <div class="date">
+				  <p>{{date post.createdAt}}</p>
+			  </div>
 	 	  </div>
 
 		  {{#each post.comments as |c|}}

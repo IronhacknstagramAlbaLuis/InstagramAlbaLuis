@@ -79,6 +79,7 @@ module.exports.update = (req, res, next) => {
   .then((user)=>{
     res.render('users/update', {user})
   })
+  .catch((next))
 }
 
 module.exports.doUpdate = (req, res, next) => {
@@ -89,6 +90,7 @@ module.exports.doUpdate = (req, res, next) => {
    .then((user)=>{
     res.redirect(`/users/${user._id}`)
    })
+   .catch((next))
 }
 
 

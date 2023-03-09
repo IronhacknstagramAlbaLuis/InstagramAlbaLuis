@@ -1,6 +1,7 @@
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const User = require('../models/user.model');
+const Like = require('../models/like.model')
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -23,8 +24,8 @@ module.exports.session = session({
     
     if(userId) {
       User.findById(userId)
-      .then((user)=>{
-        
+      // .populate('posts')
+      .then((user)=>{        
         req.user = user;
         res.locals.currentUser = user
         next()
