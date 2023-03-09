@@ -148,16 +148,23 @@ input {
     justify-content: space-between;
     background-color: #000;
     align-items: center;
-    padding: 4%;
+    padding: 4% 4% 0% 4%;
 }
 img.logowhite{
     max-width: 150px;
     margin-top: 12px;
 }
 img.like{
-    max-width: 40px;
+  max-width: 27px;
+  margin-right: 10px;
 }
-
+.likeform{
+  display: inline;
+}
+.likeform button{
+  background: transparent;
+  border: none;
+}
 
 /* POST */
 
@@ -187,8 +194,8 @@ float: right;
 }
 .userimgs {
 max-width: 100px;
-width: 50px;
-height: 50px;
+width: 40px;
+height: 40px;
 border-radius: 30px;
 }
 .usernames_post{
@@ -197,6 +204,11 @@ color: white;
 }
 .user-post{
 padding: 5%;
+}
+.user-post a {
+  text-transform: capitalize;
+  margin-left: 12px;
+  text-decoration: none;
 }
 
 
@@ -246,6 +258,9 @@ padding: 5%;
 .description-perfil {
     margin-top: 10px;
   }
+.description_post p b {
+    text-transform: capitalize;
+  }
 .btn-edit {
     background: #282828;
     padding: 5px 50px;
@@ -255,11 +270,13 @@ padding: 5%;
   }
   .your-post{
     background: black;
+    padding-top: 25px;
   }
 .your-image-post {
     display: inline;
-    width: 32.6%;
+    width: 32.4%;
     margin-bottom: 3px;
+    vertical-align: top;
   }
 .user-edit {
     margin: 15px 0px;
@@ -286,11 +303,27 @@ padding: 5%;
 }
 .imgfrmpost {
   text-align: center;
-  padding: 8%;
+  padding: 20% 10% 0%;
 }
-.userimgs_post a {
+/* FORM PUBLIC POST */
 
+.frmnewpost {
+  padding: 10%;
 }
+#image, #description {
+  border-radius: 0px;
+  width: 100%;
+}
+.btnewpost {
+  margin-top: 22px;
+  background: #4BB4F8;
+}
+label {
+  color: #a0a0a0;
+  font-family: arial;
+}
+
+
 		
 @media screen and (max-width: 630px) {
   body {

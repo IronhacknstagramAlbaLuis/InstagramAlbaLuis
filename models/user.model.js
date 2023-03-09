@@ -19,7 +19,7 @@ const schema = new mongoose.Schema(
         },
         userimage: {
             type: String ,
-            default: 'https://res.cloudinary.com/dp520ozjl/image/upload/v1659034965/glovo/dvyi5n3bxrymxwrrjgcf.png',
+            default: 'https://asset.cloudinary.com/dfozyaoao/9daad594c84b80dbfbe3668b568f19ef',
         },
         userdescription: {
             type: String,
