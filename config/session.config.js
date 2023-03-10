@@ -1,7 +1,8 @@
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const User = require('../models/user.model');
-const Like = require('../models/like.model')
+const Like = require('../models/like.model');
+const { populate } = require('../models/user.model');
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -23,15 +24,17 @@ module.exports.session = session({
     const { userId } = req.session
     
     if(userId) {
-      User.findById(userId)
-      // .populate('posts')
-      .then((user)=>{        
-        req.user = user;
-        res.locals.currentUser = user
-        next()
-      })
-      .catch(error=> next(error))
-    }else {
+      User
+        .findById(userId)
+        .populate({ path: 'likes' })
+        .then((user)=>{  
+          console.log(user);      
+          req.user = user;
+          res.locals.currentUser = user
+          next()
+        })
+        .catch(error=> next(error))
+    } else {
       next()
     }
   }

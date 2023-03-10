@@ -1,7 +1,27 @@
-const Post = require("../models/post.model")
-const User = require('../models/user.model');
-const Comment = require('../models/comment.model');
-const Like = require('../models/like.model')
-const mongoose = require("mongoose");
+const Like = require('../models/like.model');
 
-// module.exports.
+module.exports.like = (req, res, next) => {
+  const criterial = {};
+  criterial.user = req.user.id;
+  criterial.post = req.params.id;
+
+  Like
+      .find(criterial)
+      .then((like) => {
+          if (like.length) {
+              return Like
+                  .deleteOne(like[0]._id)
+                  .then(() => {
+                      
+                  })
+          } else {
+              return Like
+                  .create(criterial)
+                  .then(() => {
+
+                  })
+          }
+      })
+      .catch(next)
+  res.redirect('/')
+}

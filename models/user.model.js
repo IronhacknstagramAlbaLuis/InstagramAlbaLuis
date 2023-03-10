@@ -19,7 +19,7 @@ const schema = new mongoose.Schema(
         },
         userimage: {
             type: String ,
-            default: 'https://asset.cloudinary.com/dfozyaoao/9daad594c84b80dbfbe3668b568f19ef',
+            default: 'https://res.cloudinary.com/dfozyaoao/image/upload/v1678387216/instagram/user_ins_vx7amy.png',
         },
         userdescription: {
             type: String,
@@ -32,7 +32,12 @@ const schema = new mongoose.Schema(
             default:'guest'
         }
     },
-    { timestamps: true }
+    { 
+        timestamps: true,
+        toJSON: {
+            virtuals: true
+        }
+     }
 );
 
 schema.pre("save", function(next){
@@ -58,14 +63,12 @@ schema.pre("save", function(next){
 schema.virtual('posts', {
     ref: 'Post',
     localField: '_id',
-    foreignField: 'author',
-    justOne: false
+    foreignField: 'author'
 })
 schema.virtual('likes', {
-    ref: 'Like',
+    ref: 'Likes',
     localField: '_id',
-    foreignField: 'user',
-    justOne: false
+    foreignField: 'user'
 })
 
 module.exports = mongoose.model("User", schema);

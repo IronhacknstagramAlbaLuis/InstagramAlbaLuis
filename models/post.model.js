@@ -14,7 +14,12 @@ const schema = new mongoose.Schema(
         maxLength: [140, "max 140 chars."],
         },
     },
-    { timestamps: true }
+    { 
+        timestamps: true,
+        toJSON: {
+            virtuals: true
+        }
+    }
 );
 
 schema.virtual('comments', {

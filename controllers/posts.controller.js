@@ -29,7 +29,6 @@ module.exports.home = (req, res, next) => {
     .sort({ createdAt: req.query.sort || "desc" })
     //.then((posts) => res.render("posts/list", { posts, query: req.query }))
     .then((posts) => {
-      console.log(req.user)
       res.render("home", { posts, query: req.query, user: req.user })})
     .catch(next);
 }
@@ -97,7 +96,7 @@ module.exports.imgprofile = (req, res, next) => {
 module.exports.search = (req, res, next)=>{
   Post.find()
   .then((posts) => {
-    res.render("posts/search", {posts})
+    res.render("posts/search", {posts, user: req.user})
   })
 }
  
