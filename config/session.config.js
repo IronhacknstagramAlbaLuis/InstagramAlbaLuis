@@ -26,9 +26,8 @@ module.exports.session = session({
     if(userId) {
       User
         .findById(userId)
-        .populate({ path: 'likes' })
-        .then((user)=>{  
-          console.log(user);      
+        .populate('likes')
+        .then((user)=>{        
           req.user = user;
           res.locals.currentUser = user
           next()

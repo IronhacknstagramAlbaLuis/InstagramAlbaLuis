@@ -18,3 +18,7 @@ hbs.registerHelper('date', (date) => {
         }
      return  `${minDiff}m ago`
 })
+
+hbs.registerHelper("like", (id, array) => {
+    return array.some((element) => element.post.toString() === id.toString())
+})
