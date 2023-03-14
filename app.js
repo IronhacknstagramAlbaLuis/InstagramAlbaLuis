@@ -21,7 +21,7 @@ const router = require("./config/routes.config");
 
 app.use(router);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3006;
 app.listen(port, () => console.info (`App listening at port ${port}`));
 
 

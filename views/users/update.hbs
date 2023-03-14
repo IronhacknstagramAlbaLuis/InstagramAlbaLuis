@@ -1,14 +1,15 @@
-<div class="contenedorfom">
-    <div class="formu">
+<div class="contenedoredit">
+    <div class="formuedit">
+        <a class=" disabled" href="/users/{{user.id}}"><p class="closeupdate">x</p></a>
         <p class="contenedorlogo">
-            <img class="logo" src="/images/instagram.png" alt=""> 
+            <img class="logoupdate" src="/images/logo_white.png" alt="Instagram" width="160"> 
         </p>
         {{#if errors}}<div class="alert alert-danger">Review form data</div>{{/if}}
         
         <form action="/users/me/edit" method="POST" enctype="multipart/form-data" > 
             <div class="mb-3">
 				<input class="form-control" name="userimage" type="file" id="userimage" value="{{user.userimage}}">
-                <img id="image" class="m-2" src="{{user.userimage}}" width="200"/>
+                <img id="image" src="{{user.userimage}}" width="200"/>
 			</div>
 			<div class="form-floating">
   				<textarea class="form-control" name="userdescription" placeholder="Write a caption" id="userdescription" rows="5" style="height: 100px">
@@ -27,7 +28,7 @@
                 {{#if errors.password}}<div class="invalid-feedback">{{errors.password}}</div>{{/if}}
                 {{pasInvalid}}
             </div>
-            <button type="submit" class="btncreate btn btn-primary">Update</button>
+            <button type="submit" class="btncreate btn btn-primary mt-3">Update</button>
         </form>
 
     </div>   

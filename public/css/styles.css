@@ -96,6 +96,49 @@ li.submenu{
 .formu h3{
     margin: 10px 0 25px 0;
 }
+.formuedit {
+  background-color: black;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+  padding: 50px;
+  text-align: center;
+}
+#userdescription {
+  margin-bottom: 10px;
+}
+#userimage {
+  margin-bottom: 10px;
+}
+.logoupdate{
+  margin-bottom: 20px;
+}
+.closeupdate{
+  color: white;
+  position: absolute;
+  right: 15px;
+  font-size: 27px;
+  top: 16px;
+}
+.btn-edit:hover {
+  color: white;
+  font-weight: bold;
+}
+.formcomments {
+  padding: 50% 10%;
+}
+.txtcomments{
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  width: 100%;
+}
+.navsuperioritem {
+  margin: 0 auto;
+}
+.formuedit h3{
+  margin: 10px 0 25px 0;
+}
 
 .btncreate{
     width: 100%;
