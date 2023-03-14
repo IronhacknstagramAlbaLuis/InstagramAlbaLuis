@@ -53,7 +53,7 @@ nav{
     background: #000;
     position: absolute;
     bottom: 0px;
-    max-width: 500px;
+    max-width: 700px;
 }
 .menu{
     width: 100%;
@@ -306,7 +306,7 @@ padding: 5%;
   }
 .btn-edit {
     background: #282828;
-    padding: 5px 50px;
+    padding: 5px 135px;
     text-decoration: none;
     color: white;
     border-radius: 9px;
@@ -347,6 +347,15 @@ padding: 5%;
 .imgfrmpost {
   text-align: center;
   padding: 20% 10% 0%;
+}
+.userimgs_post {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.user-description-perfil {
+  text-align: center;
+  width: 100%;
+  margin: 5% 0%;
 }
 /* FORM PUBLIC POST */
 
