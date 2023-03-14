@@ -94,6 +94,7 @@ module.exports.imgprofile = (req, res, next) => {
 }
 
 module.exports.search = (req, res, next)=>{
+  
   Post.find()
   .then((posts) => {
     res.render("posts/search", {posts, user: req.user})

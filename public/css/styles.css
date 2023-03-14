@@ -88,11 +88,13 @@ li.submenu{
     order: 0;
     flex: 0 1 auto;
     align-self: auto;
-    border: 1px solid #d1d1d1;
-    padding: 50px;
+    padding: 30px;
     text-align: center;
 }
-
+.comment {
+  color: white;
+  padding: 0px 5%;
+}
 .formu h3{
     margin: 10px 0 25px 0;
 }

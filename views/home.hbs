@@ -34,7 +34,7 @@
 	 	  </div>
 
 		  {{#each post.comments as |c|}}
-		  	<div>{{c.text}} - {{c.author.name}}</div>
+		  	<div class="comment">{{c.author.name}}: {{c.text}}</div>
 		  {{/each}}
 	  </div>
 {{/each}}
